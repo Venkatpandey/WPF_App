@@ -1,0 +1,57 @@
+﻿<Window x:Class="Window1" Title="myWindow" Width="520" Height="240"
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="f_myWindow" Loaded="f_myWindow_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="194*" />
+            <RowDefinition Height="8" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="61" />
+            <ColumnDefinition Width="11" />
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="411*" />
+        </Grid.ColumnDefinitions>
+        <DockPanel Grid.Column="3" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <MediaElement Name="ME_video" DockPanel.Dock="Left" LoadedBehavior="Manual"
+                      Source="rat.wmv" 
+                      MouseUp="video_mouseUp" Stretch="Uniform" Margin="0,0,3,46" MouseWheel="video_MouseWheel" Tag="1">
+                <!--<MediaElement.Clip>
+                    <EllipseGeometry Center="200,180" RadiusX="180" RadiusY="180"/>
+                </MediaElement.Clip>-->
+            </MediaElement>
+        </DockPanel>
+        <StackPanel Margin="0,0,0,0">
+            <WrapPanel Name="wP_color" ItemHeight="15" ItemWidth="15" Button.Click="b_farbe_Click" Margin="0,4,1,10" Height="50" Width="45" HorizontalAlignment="Left">
+                <Button Height="12" Width="12" Background="White" />
+                <Button Background="DimGray" Height="12" Width="12" />
+                <Button Background="ForestGreen" Height="12" Width="12" />
+                <Button Background="Cyan" Height="12" Name="button3" Width="12" />
+                <Button Background="Brown" Height="12" Name="button4" Width="12" />
+                <Button Background="Red" Height="12" Name="button5" Width="12" />
+                <Button Background="Yellow" Height="12" Name="button6" Width="12" />
+            </WrapPanel>
+            <WrapPanel Height="74" Margin="0,0,0,0" VerticalAlignment="Bottom" Orientation="Vertical" FlowDirection="LeftToRight">
+                <Button x:Name="b_close" Click="b_Click" Background="Black" Foreground="OrangeRed" FontWeight="Bold" Width="20" Height="20" Margin="2">X</Button>
+                <Button Width="20" Height="20" Name="b_abfoto" Click="b_abfoto_Click" Margin="2">
+                    <Image Stretch="Fill" VerticalAlignment="Bottom" Source="b_save.gif" Margin="2" />
+                </Button>
+                <Button Width="20" Height="20" Name="b_open" Click="b_open_Click"  Margin="2">
+                    <Image Stretch="Fill" VerticalAlignment="Bottom" Source="b_open.gif" Margin="2" />
+                </Button>
+                <Button Width="20" Height="20" Name="b_stop" Click="b_stop_Click"  Content="stp" Margin="2" FontSize="8" Tag="0" />
+                <Button Width="20" Height="20" Name="b_clip" Click="b_clip_Click" Content="clp" Margin="2" FontSize="8" Tag="0" />
+                <Button Width="20" Height="20" Name="b_dreh"  Content="drh" Margin="2" 
+                    PreviewMouseUp="b_dreh_MouseUp" FontSize="8" />
+            </WrapPanel>
+        <Slider Name="volSlider" Width="63" Maximum="1" LargeChange="0.1" SmallChange="0.05" Value="0.5" ValueChanged="slider1_ValueChanged" TickFrequency="0.01" IsDirectionReversed="False" Orientation="Horizontal" BorderBrush="Coral" ClipToBounds="True" SnapsToDevicePixels="False" HorizontalAlignment="Right" Margin="0,10,0,5" Height="14">
+            <Slider.BitmapEffect>
+                <DropShadowBitmapEffect />
+            </Slider.BitmapEffect>
+        </Slider>
+        <ProgressBar Grid.Column="1" Height="11" HorizontalAlignment="Left" Name="pB_progress" VerticalAlignment="Bottom" Width="59" 
+                     Grid.ColumnSpan="3" Margin="0,0,0,0" 
+                     MouseLeftButtonUp="pB_progress_MouseLeftButtonUp"/>
+        </StackPanel>
+    </Grid>
+</Window>
